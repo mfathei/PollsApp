@@ -10,9 +10,9 @@ function pollsAppRouteConfig($routeProvider) {
         controller: 'IndexController',
         templateUrl: 'partials/list.html'
     }).when('/view/:id', {
-        controller: 'pollsController',
-        templateUrl: 'partials/pol.html'
-    }).when('/view/:id:/stats', {
+        controller: 'PollController',
+        templateUrl: 'partials/poll.html'
+    }).when('/view/:id/stats', {
         controller: 'StatsController',
         templateUrl: 'partials/stats.html'
     });

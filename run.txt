@@ -1,0 +1,16 @@
+to run this application
+
+
+navigate to the project folder in cmd
+
+// run laravel RESTFul api
+cd pollsapp
+php artisan serve --port=8000
+
+
+// run client project (angular interface)
+cd pollsapp
+php -S localhost:8888 -t public
+
+// browse the app
+http://localhost:8888/index.html
