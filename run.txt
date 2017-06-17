@@ -14,3 +14,11 @@ php -S localhost:8888 -t public
 
 // browse the app
 http://localhost:8888/index.html
+
+
+
+
+
+
+// tutorial source
+http://www.codeheaps.com/web-development-2/creating-polling-application-using-angularjs-and-laravel-part-1/
