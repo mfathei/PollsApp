@@ -13,6 +13,16 @@
 
 use App\Poll;
 
+/**
+ * inorder for your CORS to work, you need to add header(‘Access-Control-Allow-Origin: http://yourclientaddress.com’)
+ * at the top of your routes.php file. Ofcourse replace http://yourclientaddress.com with whatever is the client address.
+ * If you want to allow multiple clients, add it as comma separated values.
+ */
+header('Access-Control-Allow-Origin: http://pollapp.dev:8080'); // u can replace it to * to allow more than one site to call ur api
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Headers: accept, content-type,x-xsrf-token, x-csrf-token');
+
+
 Route::group(['prefix' => 'api', 'middleware' => 'allowOrigin'], function () {
 
     Route::get('/polls/{page}', function ($page) {
