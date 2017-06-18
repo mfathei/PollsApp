@@ -2,7 +2,7 @@ pollsApp.factory('pollService', function ($http, $q) {
         return {
             getData: function (route, param) {
                 var defer = $q.defer();
-                $http.get('http://localhost:8000/api/' + route + '/' + param).then(function success(data) {
+                $http.get(API_URL + route + '/' + param).then(function success(data) {
                         defer.resolve(data);
                     }
                     ,
@@ -16,7 +16,7 @@ pollsApp.factory('pollService', function ($http, $q) {
             postData: function (id, data) {
                 var defer = $q.defer();
                 data = $.param(data);
-                $http.post('http://localhost:8000/api/poll/' + id + '/option', data,
+                $http.post(API_URL + 'poll/' + id + '/option', data,
                     {
                         'headers': {
                             'Content-Type': 'application/x-www-form-urlencoded,charset=UTF-8'
