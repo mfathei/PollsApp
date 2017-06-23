@@ -3,7 +3,7 @@ var modules = [
     'angularCharts'
 ];
 
-var API_URL = 'http://pollappsvc.dev:8080/api/';
+var API_URL = 'http://pollapp.dev:8080/api/';
 
 var pollsApp = angular.module('pollsApp', modules);
 

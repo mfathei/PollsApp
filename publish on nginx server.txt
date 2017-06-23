@@ -1,31 +1,16 @@
-// for the RESTFul API
-# add this to ur hosts file :   127.0.0.1   pollappsvc.dev
-    server {
-        listen 8080;
-        server_name pollappsvc.dev;
-        root G:/PROGRAMMING/php/work/pollsapp/public;
-        index index.php index.html;
-        
-        location / {
-            try_files $uri $uri/ /index.php?$query_string;
-        }
-        
-        location ~ \.php$ {
-            fastcgi_pass   127.0.0.1:9000;
-            fastcgi_index  index.php;
-            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-            include        fastcgi_params;
-        }        
-    }
-    
-// for the angular client web app
-// note enabled html5Mode and <base> tag and we still can refresh pages
-    # add this to ur hosts file :   127.0.0.1   pollapp.dev
+// I merged it again in one server block but forward request to index.php if it has /api/ else to index.html angular routing
+
+
+# add this to ur hosts file :   127.0.0.1   pollapp.dev
     server {
         listen 8080;
         server_name pollapp.dev;
         root G:/PROGRAMMING/php/work/pollsapp/public;
         index index.html;
+        
+        location /api/ {
+            try_files $uri $uri/ /index.php?$query_string;
+        }
         
         location / {
             try_files $uri $uri/ /index.html?$query_string;
@@ -38,3 +23,5 @@
             include        fastcgi_params;
         }
     }
+
+
